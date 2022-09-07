@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="heading"> test </h1>
+    <button type="button" onclick="clickfunction()"> click me </button>
+
+    <!-- html node -->
+    <input type="text" placeholder="username" name="" class="from-input" onchange="changeFunction(event)"/>
+
+    <button type="button" id="btn"> submit </button>
+
+    <script src="object.js"></script>
+
+    <script>
+        document.getElementById('btn').onclick = clickfunction2
+        
+        function clickfunction2(event){
+            // location.href = 'https://www.google.com'
+            console.log('clicked', event)
+        } 
+
+        function changeFunction(e){
+            console.log('changed');
+            console.log(e);
+            console.log(e.target.value)
+        }
+    </script>
+    
+</script>
+</body>
+</html>
