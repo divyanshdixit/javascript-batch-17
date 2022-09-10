@@ -15,9 +15,40 @@
 
     <button type="button" id="btn"> submit </button>
 
+    <div id="parent">
+        <input type="text" id="uname" class="child"/>
+        <input type="password" id="password" class="child"/>
+        <input type="text"/>
+        <input type="text"/>
+        <!-- text -->
+        <!-- comment node -->
+        <button type="button" id="submit"> Get value </button>
+
+    </div>
+
+    <button type="button" id="match"> Match value </button>
     <script src="object.js"></script>
 
     <script>
+        // pseudo element, pseudo classes
+
+        // childnodes (nodelist)
+        let parent = document.getElementById('parent');
+        console.log(parent.firstChild);
+        console.log(parent.lastChild);
+
+        // child html node (html collection)
+        console.log(parent.firstElementChild);
+        console.log(parent.lastElementChild);
+
+        // get the specific html element node:
+        console.log(document.querySelector('#parent .child')); // single value
+        
+        // get all the matching html element node :
+        document.querySelectorAll('#parent input').forEach((item, index, arr) => {
+            console.log(item);
+        }) // callback
+
         document.getElementById('btn').onclick = clickfunction2
         
         function clickfunction2(event){
@@ -30,6 +61,32 @@
             console.log(e);
             console.log(e.target.value)
         }
+
+        document.getElementById('uname').onchange = function(event){
+            // console.log(event.target.value);
+            uname = event.target.value
+        }
+
+        document.getElementById('password').onchange = function(event){
+            // console.log(event.target.value);
+            password = event.target.value
+        }
+
+        document.getElementById('submit').onclick = function(event){
+            console.log(uname , password);
+            localStorage.setItem('uname' , uname);
+            localStorage.setItem('password' , password);
+        }
+
+        document.getElementById('match').onclick = function(event){
+            let pass = localStorage.getItem('password') ;
+            if(pass === password){
+                console.log('password match!')
+            }
+        }
+
+        // get the first child:
+
     </script>
     
 </script>

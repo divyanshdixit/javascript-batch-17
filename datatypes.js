@@ -1,5 +1,6 @@
 // js => dynamic datatype
 
+
 // primitve => (non mutuable) => they don't have property and methods
 
 // Numbers
@@ -41,3 +42,10 @@ obj1 = obj2;
 console.log(obj1);
 var r = undefined;
 var r;
+
+
+null == undefined // true
+
+// null => object 
+
+null === undefined // false

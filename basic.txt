@@ -1,0 +1,29 @@
+var , let , const => block scope
+
+{
+     let x = 10;
+}
+
+{
+    var y= 20;
+}
+
+
+{
+
+}
+
+function name() {
+    var x = 10;
+}
+name();
+console.log(x); // undefined
+
+
+window =>object
+document => object
+head body
+    h1, input, button 
+    textNode/html node
+
+    <h1> heaeding </h1>
