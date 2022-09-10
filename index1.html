@@ -8,10 +8,11 @@
 </head>
 <body>
     <h1 id="heading"> test </h1>
-    <button type="button" onclick="clickfunction()"> click me </button>
-
+    
+    <button type="button" onclick="clickfunction(event)" ondblclick= "dblfunction()" value="submit"> click me </button>
+    <input type="text" placeholder="username" class="from-input" onchange="changeFunction(event)"/>
+    <div>
     <!-- html node -->
-    <input type="text" placeholder="username" name="" class="from-input" onchange="changeFunction(event)"/>
 
     <button type="button" id="btn"> submit </button>
 
@@ -27,6 +28,7 @@
     </div>
 
     <button type="button" id="match"> Match value </button>
+    </div>
     <script src="object.js"></script>
 
     <script>
@@ -55,16 +57,36 @@
             // location.href = 'https://www.google.com'
             console.log('clicked', event)
         } 
+    </script>
 
-        function changeFunction(e){
-            console.log('changed');
-            console.log(e);
-            console.log(e.target.value)
+    <script>
+        document.getElementById('heading').onmouseover = function(){
+            this.style.color = 'red';
+        }
+        document.getElementById('heading').onmouseout = function(){
+            this.style.color = 'green';
+        }
+        
+        function dblfunction(){
+            console.log('double clicked')
+        }
+        function clickfunction(event){
+            console.log('clicked', event)
         }
 
+        function changeFunction(event){
+            console.log('changed');
+            console.log(event);
+            console.log(event.target.value)
+        }
+
+        // getElement.eventName = function(){
+
+        // }
+
         document.getElementById('uname').onchange = function(event){
-            // console.log(event.target.value);
-            uname = event.target.value
+            console.log(event.target.value);
+            // uname = event.target.value
         }
 
         document.getElementById('password').onchange = function(event){

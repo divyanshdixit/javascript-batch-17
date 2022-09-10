@@ -28,40 +28,42 @@ console.log(obj)
 var obj3 = {
     age: 30,
     name:'ddd',
-    getAge: function(){
-        console.log(this.age) // this refere to the parent object
-        
+    getAge: function(){ // Anonyums 
+        console.log('my name is ' + this.name + ' and my age is ' + this.age) // this refere to the parent object
     }
 }
+
+console.log(obj3.getAge())
 
 obj3.getName = function(){
     console.log(this.name)
 }
+
 console.log(obj3.getAge(), obj3.getName())
 
 
-// 
+// duplication of object:
+
 var x = 10;
-x = 20;
-console.log(x); // 20
+console.log(x); // 10
 
 var y;
 y = x;
-console.log(y); // 20
+console.log(y); // 10
 
-y =30;
-console.log(x); // 20
+y = 30;
+console.log(x); // 10
 
 // 
-var obj4 = {
+var obj4 = { // reference
     x:20
 }
 
-var obj5 = obj4;
+var obj5 = obj4; // 
 console.log(obj5); // 
 
 obj5.x = 30;
-console.log(obj4);
+console.log(obj4); // {x:30}
 
 // never copy of object
 
