@@ -31,7 +31,7 @@ for(key in obj){
 }
 console.log(count)
 
-// for of:
+// for of: give the value but not index.
 var arr = [1,2,3,4];
 var str = 'divyansh';
 
@@ -40,3 +40,32 @@ for(j of arr){ // arr[1]
 }
 
 // forEach:
+// all callback function are anonymus function:
+// 
+// array.forEach(callback)
+
+
+// syntax: 
+
+/*
+array.forEach( function(item, index, array){
+    // console.log(item, index)
+    // no return value
+});
+
+*/
+
+// ex:1
+var total = 0;
+var arr1 = [1,2,3,4];
+
+arr1.forEach(function(item, index){
+    console.log(index, item);
+    total = total + item;
+})
+
+console.log(total)
+
+
+
+// arr.forEach( () => {})

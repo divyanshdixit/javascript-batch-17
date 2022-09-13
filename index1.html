@@ -29,6 +29,11 @@
 
     <button type="button" id="match"> Match value </button>
     </div>
+
+    <div id="printdivs">
+       
+    </div>
+
     <script src="object.js"></script>
 
     <script>
@@ -60,6 +65,17 @@
     </script>
 
     <script>
+        // var x = 10;
+        // x = 20;
+        // x = x + 30
+        // x+=30
+
+        var arr = ['para1', 'para2', 'para3'];
+        let printdivelement = document.getElementById('printdivs');
+        arr.forEach(function(item){
+            printdivelement.innerHTML =  printdivelement.innerHTML + '<p> ' + item +  '</p>';
+        })
+
         document.getElementById('heading').onmouseover = function(){
             this.style.color = 'red';
         }
