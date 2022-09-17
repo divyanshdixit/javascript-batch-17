@@ -32,7 +32,7 @@ console.log(str.lastIndexOf('quick', 14))
 // ([A-Z]{1,}[a-z]{1,}[0-9]{1,}(@#$%^&*))
 
 // search(\pattern\) => same as indexOf() // recives either pattern or word
-search(/Divyansh/)
+// search(/Divyansh/)
 // differenc in search and indexof()
 
 // indexOf() can't recv pattern 
@@ -48,17 +48,17 @@ console.log(str.search(/(b?)[a-z]{1,}[n]/))
 
 // slice(start,end), substring(start, end), substr(start, length)
 
-// slice(start, end)=> 
+// slice(start index, end index(optional))=> 
 
 // return the extracted part as new string.
 // starting index , ending index => if not included then extreact whole string
-// ending  index will be end index - 1, if ending index is 3 , it'll extract till 2nd index 
+// ending  index will be (end index - 1), if ending index is 3 , it'll extract till 2nd index 
 // it can take -ve aurguments 
 
 var whole = 'get a part of string';
 
-console.log(whole.slice(0,3)) // start < end
-
+console.log(whole.slice(6,12)) // start < end-1
+// (0,19) start < ending
 // -ve arguments
 
 console.log(whole.slice(-6,-1)) // -12, -6
@@ -70,33 +70,35 @@ console.log(whole.slice(-3));
 
 // it's similar to slice, but it cannt take -ve arguments
 
+console.log(whole.substring(5,12))
 
-// substr(start, length):
+// substr(start index, length):
 // it's similar to slice, second parameter represent the length of the extracted part:
 // if first param is -ve , coutn start from end of the string.
 
-console.log(whole.substr(0, 1))
+console.log(whole.substr(0, 4))
 console.log(whole.substr(-8, 5))
 var newString = whole.substr(-8, 5);
 console.log(newString, whole)
 
-// Replacing the string content:
+// 4 => Replacing the string content:
 
 // replace("replace this", "replace with")
 // replace only first match by default,
 // case senstive
 // it can take reg ex (regular expression) pattern also.
 
-var before = "Before replace before";
-console.log(before.replace(/before/ig, "After"))
+var befores = "Before replace before";
+console.log(befores.replace('before', "After"))
 
 
 //  Convert string to upper or lower case:
 
-console.log(before.toUpperCase(), before)
+console.log(befores.toUpperCase(), befores)
 
 // convert all to lower case
-console.log(before.toUpperCase().toLowerCase())
+// chaining method
+console.log(befores.toUpperCase().toLowerCase())
 
 // "asdas" + "sadas"
 
@@ -110,7 +112,7 @@ console.log(first.concat('second'), ''.concat('asdas', 'adsasd'));
 // trimStart(), trimEnd(), trimLeft(), trimRight()
 
 var or = "             Divyansh       Dixit                 ";
-console.log(or.trim())
+console.log(or.trimEnd(), or.trimStart())
 
 
 // extracting string chars:
@@ -121,21 +123,23 @@ console.log(or.trim())
 // charCodeAt(position) => return the unicode(ASCII) of char at given index
 
 var str2 = "Div,yansh";
-
+console.log(str2.charAt(0), str2.charCodeAt(0))
+// console.log(str2[0]) => loops 
 // str2[0] => read-only purpose 
 str2[0] = 'A';
 // str2.charAt(0);
 console.log(str2.charAt(0), str2[0], str2.charCodeAt(0));
 
 
-// document.getElementById('uname').onkeydown = function(e){
-//     console.log(e, e.key, e.which, e.target.value, typeof e.target.value);
-//     // if(e.keyCode === 32){ // e.target.value == '   '
-//     //     alert('Spaces are not alleoed');
-//     //     return false;
-//     // }else{
-//     //     return true;
-//     // }
+// document.getElementById('uname').onkeydown = function(event){
+//     console.log(event)
+//     // console.log(e, e.key, e.which, e.target.value, typeof e.target.value);
+//     if(event.keyCode === 32){ // e.target.value == '   '
+//         alert('Spaces are not alleoed');
+//         return false;
+//     }else{
+//         return true;
+//     }
 // }
 
 // document.getElementById('uname').onchange = function(){
@@ -149,32 +153,35 @@ console.log(str2.charAt(0), str2[0], str2.charCodeAt(0));
 //     }
 // } 
 
-// convert string into array:
+// convert string into array:=> 
 
+var t = "custom function using prototype"
 // split(delimeter): 
 
 // split string with the delimeter passed:
 // if omitted then return whole string as an array or passed delimeter not found then reutnr whole stirng
 
 // 
-console.log(str2.split(','))
+console.log('divyansh'.split('-'))
 
-// toString()
-// var f = function(){
-//     var arr = fetch('https://jsonplaceholder.typicode.com/posts')
-//    return {
-//        "status":'OK',
-//        "data":arr
-//    }
-// }
-// promise 
-// document.getElementById('demo').innerHTML = f()
+// toString(): 
+var f = function(){
+    var arr = fetch('https://jsonplaceholder.typicode.com/posts')
+   return {
+       "status":'OK',
+       "data":arr
+   }
+}
+console.log(f.toString())
+
+// console.log( Boolean(false) )
 
 
-// console.log(f())
-// console.log(f.toString())
-console.log( Boolean(false) )
-
+function getAString(str){
+    console.log('first');
+    console.log(str.indexOf('function'));
+    console.log(str.length)
+}
 
 // Prototype: parent, all method an props belongs to prototype
 // you can add new/own props and method to all stirng.
